@@ -1,7 +1,8 @@
 const { Schema, model } = require("mongoose");
+// import validator npm and email checker method
 const { isEmail } = require("validator");
 
-// Schema to create a course model
+// Schema to create a user model
 const userSchema = new Schema(
 	{
 		username: {
@@ -37,6 +38,11 @@ const userSchema = new Schema(
 	}
 );
 
-const Course = model("course", courseSchema);
+// virtual friendcount
+userSchema.virtual("friendCount").get(function () {
+	return this.friends.length;
+});
 
-module.exports = Course;
+const User = model("user", userSchema);
+
+module.exports = User;
