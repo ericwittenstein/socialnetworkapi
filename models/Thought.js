@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const reactionSchema = require('./Reaction');
+const reactionSchema = require("./Reaction");
 
 // Schema to create thoughts model
 const thoughtSchema = new Schema(
@@ -7,23 +7,34 @@ const thoughtSchema = new Schema(
 		thoughtText: {
 			type: String,
 			required: true,
-      min_length: 1,
-			max_length: 280,
+			minLength: 1,
+			maxLength: 280,
 		},
 		createdAt: {
 			type: Date,
 			default: Date.now,
-      get: (date) => Date.now,
+			get: (date) => Date.now,
 		},
+		// user that created the thought
+		username: {
+			type: String,
+			required: true,
+		},
+		// nested docs of reactions, work like replies
+		reactions: [reactionSchema],
 	},
 	{
-    toJSON: {
-			getters: true,
-      virtuals: true,
+		toJSON: {
+			virtuals: true,
 		},
 	}
 );
 
-const Student = model("student", studentSchema);
+// virtual to calculate and return length of reactions array
+thoughtSchema.virtual("reactionCount").get(function () {
+	return this.reactions.length;
+});
 
-module.exports = Student;
+const Thought = model("thought", thoughtSchema);
+
+module.exports = Thought;

@@ -17,12 +17,14 @@ const userSchema = new Schema(
 			unique: true,
 			validate: [isEmail, "Please enter a valid email address"],
 		},
+		// ref to thoughts the user has created
 		thoughts: [
 			{
 				type: Schema.Types.ObjectId,
 				ref: "thought",
 			},
 		],
+		// ref to friends the user has
 		friends: [
 			{
 				type: Schema.Types.ObjectId,
@@ -38,7 +40,7 @@ const userSchema = new Schema(
 	}
 );
 
-// virtual friendcount
+// virtual friendcount for length of friends array
 userSchema.virtual("friendCount").get(function () {
 	return this.friends.length;
 });
