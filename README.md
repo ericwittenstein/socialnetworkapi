@@ -33,11 +33,11 @@ ensure dependencies are running
 
 ## License
 
-This project is licensed under the MIT license.
+This project is licensed under the MIT license. Learn more [HERE](LICENSE)
 
 ## GitHub Repo
 
-    **_ THIS IS A PLACEHOLDER FOR A GITHUB REPO _**
+https://github.com/ericwittenstein/socialnetworkapi
 
 ## Project Demo
 
