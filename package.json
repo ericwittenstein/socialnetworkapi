@@ -1,13 +1,12 @@
 {
   "name": "socialnetworkapi",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "api for a social network",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "seed": "node utils/seed",
     "heroku-postbuild": "node utils/seed.js"
   },
   "dependencies": {

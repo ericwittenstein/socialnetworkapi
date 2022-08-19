@@ -37,7 +37,7 @@ module.exports = {
 					? res.status(404).json({
 							message: errorText,
 					  })
-					: res.json(user)
+					: res.json(`User ${req.params.userId} updated`)
 			)
 			.catch((err) => res.status(500).json(err));
 	},
@@ -49,9 +49,7 @@ module.exports = {
 					? res.status(404).json({
 							message: errorText,
 					  })
-					: Thought.deleteMany({
-							_id: { $in: username.thoughts },
-					  })
+					: res.json("User yeeted")
 			)
 			.catch((err) => res.status(500).json(err));
 	},
@@ -63,11 +61,9 @@ module.exports = {
 		)
 			.then((user) =>
 				!user
-					? res
-							.status(404)
-							.json({
-								message: errorText,
-							})
+					? res.status(404).json({
+							message: errorText,
+					  })
 					: res.json(user)
 			)
 			.catch((err) => res.status(500).json(err));

@@ -34,7 +34,7 @@ module.exports = {
 							message:
 								"no thoughts, head empty, id just wind over ocean",
 					  })
-					: res.json(thought)
+					: res.json(`Thought #${req.params.thoughtId} updated`)
 			)
 			.catch((err) => res.status(500).json(err));
 	},
@@ -47,7 +47,7 @@ module.exports = {
 							message:
 								"no thoughts, head empty, id just wind over ocean",
 					  })
-					: res.json(thought)
+					: res.json(`Thought yeeted`)
 			)
 			.catch((err) => res.status(500).json(err));
 	},
@@ -63,7 +63,9 @@ module.exports = {
 							message:
 								"no thoughts, head empty, id just wind over ocean",
 					  })
-					: res.json(thought)
+					: res.json(
+							`New reaction added to thought #${req.params.thoughtId}`
+					  )
 			)
 			.catch((err) => res.status(500).json(err));
 	},
@@ -79,7 +81,9 @@ module.exports = {
 							message:
 								"no thoughts, head empty, id just wind over ocean",
 					  })
-					: res.json(thought)
+					: res.json(
+							`Reaction to thought #${req.params.thoughtId} has been deleted`
+					  )
 			)
 			.catch((err) => res.status(500).json(err));
 	},

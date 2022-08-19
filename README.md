@@ -29,7 +29,11 @@ npm i
 
 ## Usage
 
-ensure dependencies are running
+To begin running the program, run the following command in the console/command line:
+
+```
+npm start
+```
 
 ## License
 
