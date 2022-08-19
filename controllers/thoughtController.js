@@ -22,7 +22,7 @@ module.exports = {
 	// create a new thought
 	createThought(req, res) {
 		Thought.create(req.body)
-			.then((thoughtDB) => res.json(thoughtDB))
+			.then((thoughtsCollection) => res.json(thoughtsCollection))
 			.catch((err) => res.status(500).json(err));
 	},
 	// update a thought
@@ -38,6 +38,7 @@ module.exports = {
 			)
 			.catch((err) => res.status(500).json(err));
 	},
+	// delete a thought
 	deleteThought(req, res) {
 		Thought.deleteOne({ _id: req.params.thoughtId })
 			.then((thought) =>
@@ -50,6 +51,7 @@ module.exports = {
 			)
 			.catch((err) => res.status(500).json(err));
 	},
+	// create a new reaction to a thought
 	createReaction(req, res) {
 		Thought.findOneAndUpdate(
 			{ _id: req.params.thoughtId },
@@ -65,6 +67,7 @@ module.exports = {
 			)
 			.catch((err) => res.status(500).json(err));
 	},
+	// delete a reaction
 	deleteReaction(req, res) {
 		Thought.findOneAndUpdate(
 			{ _id: req.params.thoughtId },
