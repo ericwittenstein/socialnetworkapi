@@ -3,7 +3,9 @@
 
 ## Description
 
-This project will use a MongoDB to store data for a small social networking site, accessible via CRUD routes
+This project will use a MongoDB to store data for a small social networking site, accessible via CRUD routes. The following video demonstrates the application's functionality:
+
+![WalkthroughDemo](assets/SocialNetworkAPIWalkthrough.gif)
 
 ## Table of Contents 
 
@@ -45,7 +47,7 @@ https://github.com/ericwittenstein/socialnetworkapi
 
 ## Project Demo
 
-    **_ THIS IS A PLACEHOLDER FOR AN IMAGE OR SCREEN RECORDING OF THE PROJECT _**
+A walkthrough video for this application can be found [HERE](https://drive.google.com/file/d/1ZKAlOoV9_FylM7G8dHDv31lus7FQg4Wf/view) or at the top of this README file
 
 ## Contributing
 
