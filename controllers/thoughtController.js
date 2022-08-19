@@ -38,4 +38,46 @@ module.exports = {
 			)
 			.catch((err) => res.status(500).json(err));
 	},
+	deleteThought(req, res) {
+		Thought.deleteOne({ _id: req.params.thoughtId })
+			.then((thought) =>
+				!thought
+					? res.status(404).json({
+							message:
+								"no thoughts, head empty, id just wind over ocean",
+					  })
+					: res.json(thought)
+			)
+			.catch((err) => res.status(500).json(err));
+	},
+	createReaction(req, res) {
+		Thought.findOneAndUpdate(
+			{ _id: req.params.thoughtId },
+			{ $push: { reactions: req.body } }
+		)
+			.then((thought) =>
+				!thought
+					? res.status(404).json({
+							message:
+								"no thoughts, head empty, id just wind over ocean",
+					  })
+					: res.json(thought)
+			)
+			.catch((err) => res.status(500).json(err));
+	},
+	deleteReaction(req, res) {
+		Thought.findOneAndUpdate(
+			{ _id: req.params.thoughtId },
+			{ $pull: { reactions: req.body } }
+		)
+			.then((thought) =>
+				!thought
+					? res.status(404).json({
+							message:
+								"no thoughts, head empty, id just wind over ocean",
+					  })
+					: res.json(thought)
+			)
+			.catch((err) => res.status(500).json(err));
+	},
 };
